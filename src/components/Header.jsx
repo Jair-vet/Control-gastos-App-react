@@ -1,13 +1,28 @@
+import { ControlPresupuesto } from "./ControlPresupuesto"
 import { NuevoPresupuesto } from "./NuevoPresupuesto"
 
-export const Header = ({ presupuesto, setPresupuesto }) => {
+export const Header = ({ 
+    presupuesto, 
+    setPresupuesto, 
+    isValidPresupuesto, 
+    setIsValidPresupuesto 
+}) => {
+
   return (
     <header>
         <h1>Planificador de Gastos</h1>
-        <NuevoPresupuesto
+
+        { isValidPresupuesto ? (
+          <ControlPresupuesto
             presupuesto={ presupuesto }
-            setPresupuesto={ setPresupuesto }
-        />
+          />
+        ) : (
+          <NuevoPresupuesto
+              presupuesto={ presupuesto }
+              setPresupuesto={ setPresupuesto }
+              setIsValidPresupuesto={ setIsValidPresupuesto }
+          />
+        )}
     </header>
   )
 }
