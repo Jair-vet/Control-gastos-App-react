@@ -61,8 +61,9 @@ export const Modal = ({
 
         <form 
             onSubmit={ handleSubmit }
-            className={`formulario ${ animarModal ? "animar" : 'cerrar'}`}>
-            {/* <legend>{gastoEditar.nombre ? 'Editar Gasto' : 'Nuevo Gasto'}</legend> */}
+            className={`formulario ${ animarModal ? "animar" : 'cerrar'}`}
+        >
+            <legend>{gastoEditar.nombre ? 'Editar Gasto' : 'Nuevo Gasto'}</legend>
             {mensaje && <Mensaje tipo="error">{mensaje}</Mensaje>}
 
             {/* Nombre */}
@@ -114,7 +115,7 @@ export const Modal = ({
             {/* Boton */}
             <input
                 type="submit"
-                // value={gastoEditar.nombre ? 'Guardar Cambios' : 'Añadir Gasto'}
+                value={gastoEditar.nombre ? 'Guardar Cambios' : 'Añadir Gasto'}
             />
 
         </form>
