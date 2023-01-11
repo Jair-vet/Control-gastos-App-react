@@ -19,13 +19,18 @@ export const App = () => {
 
   useEffect(() => {
     if(Object.keys(gastoEditar).length > 0){
-      handleNuevoGasto()
+      setModal(true)
+  
+      setTimeout(() => {
+        setAnimarModal(true)
+      }, 400)
     }
   }, [gastoEditar])
   
 
   const handleNuevoGasto = () => {
     setModal(true)
+    setGastoEditar({})
 
     setTimeout(() => {
       setAnimarModal(true)
@@ -76,6 +81,7 @@ export const App = () => {
           animarModal={ animarModal }
           setAnimarModal={ setAnimarModal }
           guardarGasto={ guardarGasto }
+          gastoEditar={ gastoEditar }
         /> 
       }
 

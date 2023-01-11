@@ -7,6 +7,7 @@ export const Modal = ({
     animarModal,
     setAnimarModal,
     guardarGasto, 
+    gastoEditar,
 }) => {
 
     const [mensaje, setMensaje] = useState('');
@@ -16,15 +17,15 @@ export const Modal = ({
     const [fecha, setFecha] = useState('')
     const [id, setId] = useState('')
 
-    // useEffect(() => {
-    //     if( Object.keys(gastoEditar).length > 0 ) {
-    //         setNombre(gastoEditar.nombre)
-    //         setCantidad(gastoEditar.cantidad)
-    //         setCategoria(gastoEditar.categoria)
-    //         setId(gastoEditar.id)
-    //         setFecha(gastoEditar.fecha)
-    //     }
-    // }, []);
+    useEffect(() => {
+        if( Object.keys(gastoEditar).length > 0 ) {
+            setNombre(gastoEditar.nombre)
+            setCantidad(gastoEditar.cantidad)
+            setCategoria(gastoEditar.categoria)
+            setId(gastoEditar.id)
+            setFecha(gastoEditar.fecha)
+        }
+    }, []);
 
     const ocultarModal = () => {
         setAnimarModal(false)
