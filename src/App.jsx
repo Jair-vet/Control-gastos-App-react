@@ -17,6 +17,7 @@ export const App = () => {
 
   const [gastoEditar, setGastoEditar] = useState({})
 
+
   useEffect(() => {
     if(Object.keys(gastoEditar).length > 0){
       setModal(true)
@@ -38,10 +39,12 @@ export const App = () => {
   }
 
   const guardarGasto = gasto => {
+
     if( gasto.id){
       // Actualizar
       const gastosActualizados = gastos.map( gastoState => gastoState.id === gasto.id ? gasto : gastoState )
       setGastos(gastosActualizados)
+
     }else{
       // Nuevo Gasto
       gasto.id = generarId()
@@ -53,6 +56,12 @@ export const App = () => {
     setTimeout(() => {  // Cerrar el componente
       setModal(false)
     }, 400)
+  
+  }
+  const eliminarGasto = id => {
+    const gastosActualizados = gastos.filter( gasto => gasto.id !== id)
+    
+    setGastos(gastosActualizados);
   }
 
   return (
@@ -71,6 +80,7 @@ export const App = () => {
             <ListadoGastos 
               gastos={ gastos }
               setGastoEditar={ setGastoEditar }
+              eliminarGasto={ eliminarGasto }
             />
           </main>
           <div className="nuevo-gasto">
