@@ -35,8 +35,9 @@ export const App = () => {
   }
 
   return (
-    <div>
-      <Header 
+    <div className={ modal ? 'fijar' : ''}>
+      <Header
+        gastos={ gastos } 
         presupuesto={ presupuesto }
         setPresupuesto={ setPresupuesto }
         isValidPresupuesto={ isValidPresupuesto }
